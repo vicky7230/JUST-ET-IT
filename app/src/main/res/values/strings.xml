@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">JUST ET IT!</string>
+    <string name="recipe_list_title">Recipes</string>
+    <string name="left_overs_title">Use up leftovers</string>
+    <string name="food_for_life">FOOD FOR LIFE</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="recipes_text">RECIPES</string>
+    <string name="powered_by">Powered by Recipe Puppy</string>
+    <string name="intro_one_title">Welcome</string>
+    <string name="intro_one_description">Just Et it!</string>
+    <string name="intro_two_title">Recipes</string>
+    <string name="intro_two_description">Lots of recipes</string>
+    <string name="refresh_text">Tap above icon to refresh</string>
+    <string name="banner_ad_unit_id">ca-app-pub-1032374578265411/5123181488</string>
+    <string name="action_search_title">Search</string>
+    <string name="action_settings_title">Settings</string>
+    <string name="settings_title">Settings</string>
+    <string name="help_title">Help</string>
+    <string name="info_title">Info</string>
+    <string name="leftover_button_text">USE UP LEFTOVERS</string>
+    <string name="leftovers_edit_text_hint">Enter leftovers comma separated</string>
+
+</resources>

@@ -1,0 +1,27 @@
+<?xml  version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/recipe_list"
+            android:checked="true"
+            android:icon="@drawable/ic_cutlery6"
+            android:title="@string/recipe_list_title" />
+        <item
+            android:id="@+id/left_overs"
+            android:icon="@drawable/ic_pizza3"
+            android:title="@string/left_overs_title" />
+        <item
+            android:id="@+id/settings"
+            android:icon="@drawable/ic_gear39"
+            android:title="@string/settings_title" />
+        <item
+            android:id="@+id/help"
+            android:icon="@drawable/ic_question58"
+            android:title="@string/help_title" />
+        <item
+            android:id="@+id/about"
+            android:icon="@drawable/ic_info28"
+            android:title="@string/info_title" />
+    </group>
+</menu>
