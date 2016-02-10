@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +15,6 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -24,7 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.vicky.justetit.R;
-import com.example.vicky.justetit.activity.RecipeDetailWebView;
+import com.example.vicky.justetit.activity.RecipeDetailWebViewActivity;
 import com.example.vicky.justetit.adapter.RecipesListAdapter;
 import com.example.vicky.justetit.pojo.Recipes;
 import com.example.vicky.justetit.pojo.Result;
@@ -42,6 +42,7 @@ import retrofit.Retrofit;
  */
 public class LeftOvers extends Fragment {
 
+    private static final String TAG = LeftOvers.class.getSimpleName();
     private ProgressBar progressBarLoading;
     private ListView leftoversRecipeListView;
     private List<Result> resultList;
@@ -53,6 +54,7 @@ public class LeftOvers extends Fragment {
     private EditText leftoversEditText;
     private String leftovers;
     View footerView;
+    private LinearLayout noResultsTextAndImage;
 
     public LeftOvers() {
         // Required empty public constructor
@@ -70,14 +72,14 @@ public class LeftOvers extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initUI();
-
     }
 
     private void initUI() {
         progressBarLoading = (ProgressBar) getView().findViewById(R.id.loading_progress_bar_leftovers);
+        noResultsTextAndImage = (LinearLayout) getView().findViewById(R.id.no_results_text_and_image_leftovers);
+        initLeftoversRecipeListView();
         initLeftoversEditText();
         initRefreshButtonAndText();
-        initLeftoversRecipeListView();
     }
 
     private void initRefreshButtonAndText() {
@@ -93,13 +95,19 @@ public class LeftOvers extends Fragment {
 
     private void initLeftoversEditText() {
         leftoversEditText = (EditText) getView().findViewById(R.id.leftovers_edit_text);
+        leftoversEditText.requestFocus();
+        InputMethodManager mgr = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+        mgr.showSoftInput(leftoversEditText, InputMethodManager.SHOW_IMPLICIT);
         leftoversEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                     if (!leftoversEditText.getText().toString().isEmpty()) {
                         pageNumber = 1;
+                        leftoversRecipeListView.removeFooterView(footerView);
+                        leftoversRecipeListView.addFooterView(footerView);
                         leftoversRecipeListView.setVisibility(View.GONE);
+                        noResultsTextAndImage.setVisibility(View.GONE);
                         leftovers = leftoversEditText.getText().toString();
                         InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                         imm.hideSoftInputFromWindow(getView().getWindowToken(), 0);
@@ -119,11 +127,11 @@ public class LeftOvers extends Fragment {
     private void initLeftoversRecipeListView() {
         leftoversRecipeListView = (ListView) getView().findViewById(R.id.leftovers_recipe_list);
         footerView = ((LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.recipes_list_footer, null, false);
-        leftoversRecipeListView.addFooterView(footerView);
+        //leftoversRecipeListView.addFooterView(footerView);
         leftoversRecipeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getActivity(), RecipeDetailWebView.class);
+                Intent intent = new Intent(getActivity(), RecipeDetailWebViewActivity.class);
                 intent.setData(Uri.parse(resultList.get(position).getHref()));
                 startActivity(intent);
 
@@ -170,8 +178,18 @@ public class LeftOvers extends Fragment {
                         recipesListAdapter.notifyDataSetChanged();
                     }
                     leftoversRecipeListView.setVisibility(View.VISIBLE);
+                    if (recipes.getResults().size() == 0) {
+                        leftoversRecipeListView.removeFooterView(footerView);
+                        Log.i(TAG, "Result = " + recipes.getResults().size());
+                        //footerView.setVisibility(View.GONE);
+                    }
+                    if (resultList.size() == 0) {
+                        noResultsTextAndImage.setVisibility(View.VISIBLE);
+                    }
                     isLoading = false;
                     ++pageNumber;
+                } else {
+                    leftoversRecipeListView.removeFooterView(footerView);
                 }
             }
 

@@ -18,17 +18,25 @@ public class AppIntroActivity extends AppIntro {
         int greenColorValue = Color.parseColor("#2CD358");
         int blueColorValue = Color.parseColor("#22DCFF");
         int redColorValue = Color.parseColor("#F44336");
+        int waterMelonColor = Color.parseColor("#CC5478");
         addSlide(AppIntroFragment.newInstance(
                 getString(R.string.intro_one_title),
                 getString(R.string.intro_one_description),
-                R.drawable.intro_two,
-                redColorValue
+                R.drawable.recipes,
+                waterMelonColor
         ));
         addSlide(AppIntroFragment.newInstance(
                 getString(R.string.intro_two_title),
                 getString(R.string.intro_two_description),
-                R.drawable.intro_two,
-                redColorValue
+                R.drawable.use_up_leftovers,
+                waterMelonColor
+        ));
+
+        addSlide(AppIntroFragment.newInstance(
+                getString(R.string.intro_three_title),
+                getString(R.string.intro_three_description),
+                R.drawable.search_recipe,
+                waterMelonColor
         ));
     }
 

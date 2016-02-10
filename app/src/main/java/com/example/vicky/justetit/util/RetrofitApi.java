@@ -36,5 +36,7 @@ public class RetrofitApi {
         @GET("api/")
         Call<Recipes> leftovers(@Query("i") String i, @Query("p") String p);
 
+        @GET("api/")
+        Call<Recipes> search(@Query("q") String i, @Query("p") String p);
     }
 }

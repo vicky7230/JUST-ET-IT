@@ -28,7 +28,7 @@
         android:paddingBottom="4dp"
         android:paddingRight="10dp"
         android:text="@string/food_for_life"
-        android:textColor="#D32F2F"
+        android:textColor="@color/colorPrimary"
         android:textSize="15sp"
         android:textStyle="bold" />
 

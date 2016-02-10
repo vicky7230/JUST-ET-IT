@@ -12,16 +12,12 @@
             android:icon="@drawable/ic_pizza3"
             android:title="@string/left_overs_title" />
         <item
-            android:id="@+id/settings"
-            android:icon="@drawable/ic_gear39"
-            android:title="@string/settings_title" />
-        <item
             android:id="@+id/help"
             android:icon="@drawable/ic_question58"
             android:title="@string/help_title" />
         <item
             android:id="@+id/about"
             android:icon="@drawable/ic_info28"
-            android:title="@string/info_title" />
+            android:title="@string/about_title" />
     </group>
 </menu>

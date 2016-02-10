@@ -20,7 +20,7 @@ public class MyApplication extends Application {
         final DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
                 .cacheInMemory(true)
                 .cacheOnDisk(true)
-                .showImageOnLoading(android.R.color.holo_red_light)
+                .showImageOnLoading(R.color.colorPrimary)
                 .showImageForEmptyUri(R.drawable.empty)
                 .showImageOnFail(android.R.drawable.stat_notify_error)
                 .considerExifParams(true)

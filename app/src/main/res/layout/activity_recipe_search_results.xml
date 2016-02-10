@@ -1,46 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_search"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <EditText
-            android:id="@+id/leftovers_edit_text"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/curved_rectangle"
-            android:gravity="center"
-            android:hint="@string/leftovers_edit_text_hint"
-            android:imeOptions="actionSearch"
-            android:inputType="text"
-            android:textSize="16sp" />
-    </LinearLayout>
+        android:layout_height="?actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <ListView
-            android:id="@+id/leftovers_recipe_list"
+            android:id="@+id/recipes_list_search"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
         <ProgressBar
-            android:id="@+id/loading_progress_bar_leftovers"
+            android:id="@+id/loading_progress_bar_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:indeterminate="true"
-            android:indeterminateDrawable="@drawable/progress"
-            android:visibility="gone" />
+            android:indeterminateDrawable="@drawable/progress" />
 
         <LinearLayout
-            android:id="@+id/refresh_button_and_text_leftovers"
+            android:id="@+id/refresh_button_and_text_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -49,7 +41,7 @@
             android:visibility="gone">
 
             <ImageButton
-                android:id="@+id/refresh_button_leftovers"
+                android:id="@+id/refresh_button_search"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
@@ -63,7 +55,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/no_results_text_and_image_leftovers"
+            android:id="@+id/no_results_text_and_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -72,14 +64,14 @@
             android:visibility="gone">
 
             <ImageView
-                android:id="@+id/no_results_leftovers"
+                android:id="@+id/no_results"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_close421" />
 
             <TextView
-                android:id="@+id/no_results_textView_leftovers"
+                android:id="@+id/no_results_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/no_results_text"
@@ -87,4 +79,5 @@
         </LinearLayout>
 
     </FrameLayout>
+
 </LinearLayout>

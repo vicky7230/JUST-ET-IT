@@ -8,18 +8,22 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="recipes_text">RECIPES</string>
     <string name="powered_by">Powered by Recipe Puppy</string>
-    <string name="intro_one_title">Welcome</string>
-    <string name="intro_one_description">Just Et it!</string>
-    <string name="intro_two_title">Recipes</string>
-    <string name="intro_two_description">Lots of recipes</string>
+    <string name="intro_one_title">Over a million recipes.</string>
+    <string name="intro_one_description">Browse through a database of over a million recipes and cook something new daily.</string>
+    <string name="intro_two_title">Got leftovers from last night? No problem.</string>
+    <string name="intro_two_description">Search recipes based on the leftovers from last meal and Say No To Food Waste.</string>
     <string name="refresh_text">Tap above icon to refresh</string>
     <string name="banner_ad_unit_id">ca-app-pub-1032374578265411/5123181488</string>
     <string name="action_search_title">Search</string>
-    <string name="action_settings_title">Settings</string>
     <string name="settings_title">Settings</string>
     <string name="help_title">Help</string>
-    <string name="info_title">Info</string>
+    <string name="about_title">About</string>
     <string name="leftover_button_text">USE UP LEFTOVERS</string>
     <string name="leftovers_edit_text_hint">Enter leftovers comma separated</string>
+    <string name="search_hint">Search a recipe</string>
+    <string name="action_share_title">Share</string>
+    <string name="intro_three_title">Searching for a recipe?</string>
+    <string name="intro_three_description">Search a database of over a million recipes with just a few clicks.</string>
+    <string name="no_results_text">No results found.</string>
 
 </resources>

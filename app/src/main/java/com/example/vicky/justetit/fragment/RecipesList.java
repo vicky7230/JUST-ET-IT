@@ -17,7 +17,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.vicky.justetit.R;
-import com.example.vicky.justetit.activity.RecipeDetailWebView;
+import com.example.vicky.justetit.activity.RecipeDetailWebViewActivity;
 import com.example.vicky.justetit.adapter.RecipesListAdapter;
 import com.example.vicky.justetit.pojo.Recipes;
 import com.example.vicky.justetit.pojo.Result;
@@ -83,7 +83,7 @@ public class RecipesList extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position != 0) {
-                    Intent intent = new Intent(getActivity(), RecipeDetailWebView.class);
+                    Intent intent = new Intent(getActivity(), RecipeDetailWebViewActivity.class);
                     intent.setData(Uri.parse(resultList.get(position - 1).getHref()));
                     startActivity(intent);
                 }

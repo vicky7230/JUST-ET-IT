@@ -10,7 +10,7 @@ import android.webkit.WebViewClient;
 
 import com.example.vicky.justetit.R;
 
-public class RecipeDetailWebView extends AppCompatActivity {
+public class RecipeDetailWebViewActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
