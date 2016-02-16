@@ -25,5 +25,7 @@
     <string name="intro_three_title">Searching for a recipe?</string>
     <string name="intro_three_description">Search a database of over a million recipes with just a few clicks.</string>
     <string name="no_results_text">No results found.</string>
+    <string name="version">Version 1.0</string>
+    <string name="icons">Icons Used</string>
 
 </resources>

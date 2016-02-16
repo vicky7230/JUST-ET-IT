@@ -55,6 +55,7 @@ public class LeftOvers extends Fragment {
     private String leftovers;
     View footerView;
     private LinearLayout noResultsTextAndImage;
+    private boolean isFragmentVisible = false;
 
     public LeftOvers() {
         // Required empty public constructor
@@ -88,6 +89,8 @@ public class LeftOvers extends Fragment {
         refreshButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                refreshButtonAndText.setVisibility(View.GONE);
+                progressBarLoading.setVisibility(View.VISIBLE);
                 makeNetworkRequest(leftovers, pageNumber);
             }
         });
@@ -111,9 +114,10 @@ public class LeftOvers extends Fragment {
                         leftovers = leftoversEditText.getText().toString();
                         InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                         imm.hideSoftInputFromWindow(getView().getWindowToken(), 0);
+                        refreshButtonAndText.setVisibility(View.GONE);
                         progressBarLoading.setVisibility(View.VISIBLE);
                         makeNetworkRequest(leftovers, pageNumber);
-                        Toast.makeText(getActivity(), leftovers, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getActivity(), leftovers, Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(getActivity(), "Please enter leftovers", Toast.LENGTH_SHORT).show();
                     }
@@ -180,7 +184,7 @@ public class LeftOvers extends Fragment {
                     leftoversRecipeListView.setVisibility(View.VISIBLE);
                     if (recipes.getResults().size() == 0) {
                         leftoversRecipeListView.removeFooterView(footerView);
-                        Log.i(TAG, "Result = " + recipes.getResults().size());
+                        //Log.i(TAG, "Result = " + recipes.getResults().size());
                         //footerView.setVisibility(View.GONE);
                     }
                     if (resultList.size() == 0) {
@@ -189,7 +193,11 @@ public class LeftOvers extends Fragment {
                     isLoading = false;
                     ++pageNumber;
                 } else {
+                    progressBarLoading.setVisibility(View.GONE);
                     leftoversRecipeListView.removeFooterView(footerView);
+                    noResultsTextAndImage.setVisibility(View.VISIBLE);
+                    //Toast.makeText(getActivity(), "Ya I'm the Bug", Toast.LENGTH_SHORT).show();
+
                 }
             }
 
@@ -198,9 +206,22 @@ public class LeftOvers extends Fragment {
                 progressBarLoading.setVisibility(View.GONE);
                 leftoversRecipeListView.setVisibility(View.GONE);
                 refreshButtonAndText.setVisibility(View.VISIBLE);
-                Toast.makeText(getActivity(), "Network Error!!! Check your network settings.", Toast.LENGTH_SHORT).show();
+                if (isFragmentVisible)
+                    Toast.makeText(getActivity(), "Network Error!!! Check your network settings.", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        isFragmentVisible = true;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        isFragmentVisible = false;
     }
 }
 

@@ -41,6 +41,8 @@ public class RecipesList extends Fragment {
     private int pageNumber = 1;
     private LinearLayout refreshButtonAndText;
     private ImageButton refreshButton;
+    private Context context;
+    boolean isFragmentVisible = true;
 
     public RecipesList() {
         // Required empty public constructor
@@ -55,6 +57,7 @@ public class RecipesList extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        context = getActivity();
         initUI();
         makeNetworkRequest(pageNumber);
     }
@@ -66,6 +69,8 @@ public class RecipesList extends Fragment {
         refreshButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                refreshButtonAndText.setVisibility(View.GONE);
+                progressBarLoading.setVisibility(View.VISIBLE);
                 makeNetworkRequest(pageNumber);
             }
         });
@@ -140,8 +145,21 @@ public class RecipesList extends Fragment {
                 progressBarLoading.setVisibility(View.GONE);
                 recipesListView.setVisibility(View.GONE);
                 refreshButtonAndText.setVisibility(View.VISIBLE);
-                Toast.makeText(getActivity(), "Network Error!!! Check your network settings.", Toast.LENGTH_SHORT).show();
+                if (isFragmentVisible)
+                    Toast.makeText(context, "Network Error!!! Check your network settings.", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        isFragmentVisible = true;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        isFragmentVisible = false;
     }
 }

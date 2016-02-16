@@ -45,6 +45,7 @@ public class RecipeSearchResultsActivity extends AppCompatActivity {
     private String query;
     private View footerView;
     private LinearLayout noResultsTextAndImage;
+    private boolean isActivityVisible = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -132,6 +133,7 @@ public class RecipeSearchResultsActivity extends AppCompatActivity {
                     ++pageNumber;
                 } else {
                     searchRecipesListView.removeFooterView(footerView);
+                    //Toast.makeText(RecipeSearchResultsActivity.this, "Ya I'm tghe Bug", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -140,7 +142,8 @@ public class RecipeSearchResultsActivity extends AppCompatActivity {
                 progressBarLoading.setVisibility(View.GONE);
                 searchRecipesListView.setVisibility(View.GONE);
                 refreshButtonAndText.setVisibility(View.VISIBLE);
-                Toast.makeText(RecipeSearchResultsActivity.this, "Network Error!!! Check your network settings.", Toast.LENGTH_SHORT).show();
+                if (isActivityVisible)
+                    Toast.makeText(RecipeSearchResultsActivity.this, "Network Error!!! Check your network settings.", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -152,6 +155,8 @@ public class RecipeSearchResultsActivity extends AppCompatActivity {
         refreshButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                refreshButtonAndText.setVisibility(View.GONE);
+                progressBarLoading.setVisibility(View.VISIBLE);
                 makeNetworkRequest(query, pageNumber);
             }
         });
@@ -181,6 +186,18 @@ public class RecipeSearchResultsActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         finish();
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        isActivityVisible = true;
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        isActivityVisible = false;
     }
 }
 

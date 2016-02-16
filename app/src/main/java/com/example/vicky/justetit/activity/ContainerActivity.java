@@ -24,6 +24,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.vicky.justetit.R;
+import com.example.vicky.justetit.fragment.About;
 import com.example.vicky.justetit.fragment.LeftOvers;
 import com.example.vicky.justetit.fragment.RecipesList;
 import com.example.vicky.justetit.pojo.NetworkStateChanged;
@@ -122,6 +123,9 @@ public class ContainerActivity extends AppCompatActivity {
                 break;
             case R.id.left_overs:
                 fragmentClass = LeftOvers.class;
+                break;
+            case R.id.about:
+                fragmentClass = About.class;
                 break;
             default:
                 fragmentClass = RecipesList.class;
