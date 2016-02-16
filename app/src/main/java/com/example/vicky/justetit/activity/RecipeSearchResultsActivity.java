@@ -132,7 +132,10 @@ public class RecipeSearchResultsActivity extends AppCompatActivity {
                     isLoading = false;
                     ++pageNumber;
                 } else {
+                    progressBarLoading.setVisibility(View.GONE);
                     searchRecipesListView.removeFooterView(footerView);
+                    if (pageNumber == 1)
+                        noResultsTextAndImage.setVisibility(View.VISIBLE);
                     //Toast.makeText(RecipeSearchResultsActivity.this, "Ya I'm tghe Bug", Toast.LENGTH_SHORT).show();
                 }
             }

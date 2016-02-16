@@ -195,6 +195,7 @@ public class LeftOvers extends Fragment {
                 } else {
                     progressBarLoading.setVisibility(View.GONE);
                     leftoversRecipeListView.removeFooterView(footerView);
+                    if (pageNumber == 1)
                     noResultsTextAndImage.setVisibility(View.VISIBLE);
                     //Toast.makeText(getActivity(), "Ya I'm the Bug", Toast.LENGTH_SHORT).show();
 
