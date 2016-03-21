@@ -1,4 +1,4 @@
-package com.example.vicky.justetit;
+package com.awesome.vicky.justetit;
 
 import org.junit.Test;
 
