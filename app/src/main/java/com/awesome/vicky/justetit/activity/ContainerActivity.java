@@ -155,8 +155,8 @@ public class ContainerActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.action_share) {
             Intent sendIntent = new Intent();
             sendIntent.setAction(Intent.ACTION_SEND);
-            sendIntent.putExtra(Intent.EXTRA_TEXT, "I found this cool app for recipres: JUST ET IT!" +
-                    "\n Check it out at: http://justetit.netai.net/");
+            sendIntent.putExtra(Intent.EXTRA_TEXT, "I found this cool app for recipes: JUST ET IT!" +
+                    "\nCheck it out at: http://justetit.netai.net/");
             sendIntent.setType("text/plain");
             startActivity(sendIntent);
         }
