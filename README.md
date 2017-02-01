@@ -21,4 +21,4 @@ JUST ET IT! is an app for recipes. Browse and search through a database of over 
 
 # Get it on google play
 
-[<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" width="200">](https://github.com/vicky7230/JUST-ET-IT-Android-App/blob/master/graphics/playstore.png)
+[<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" width="200">](https://play.google.com/store/apps/details?id=com.awesome.vicky.justetit&hl=eng)
