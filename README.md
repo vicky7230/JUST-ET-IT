@@ -5,12 +5,11 @@
 JUST ET IT! is an app for recipes. Browse and search through a database of over a million recipes. Not only that, it provides a cool feature that allows you to search recipes based on the leftovers( or ingredients) from your last meal.
 
 # Screen Shots
-
-<img width='300' hspace='20' src='https://github.com/vicky7230/JUST-ET-IT-Android-App/blob/master/graphics/p1.png' />
-<img width='300' hspace='20' src='https://github.com/vicky7230/JUST-ET-IT-Android-App/blob/master/graphics/p2.png' />
-<img width='300' hspace='20' src='https://github.com/vicky7230/JUST-ET-IT-Android-App/blob/master/graphics/p3.png' />
-<img width='300' hspace='20' src='https://github.com/vicky7230/JUST-ET-IT-Android-App/blob/master/graphics/p4.png' />
-<img width='300' hspace='20' src='https://github.com/vicky7230/JUST-ET-IT-Android-App/blob/master/graphics/p5.png' />
+<p align="center">
+  <img width='280' src='https://github.com/vicky7230/JUST-ET-IT-Android-App/blob/master/graphics/p1.png' />
+  <img width='280' src='https://github.com/vicky7230/JUST-ET-IT-Android-App/blob/master/graphics/p2.png' />
+  <img width='280' src='https://github.com/vicky7230/JUST-ET-IT-Android-App/blob/master/graphics/p4.png' />
+</p>
 
 # Features
 
